@@ -118,7 +118,7 @@ $(function (){
 	});
 
      //Validation...
-	jQuery.extend(jQuery.validator.messages, { required: "  { Required.",  number: " { Numeric.", digits: " { Digits." });
+	jQuery.extend(jQuery.validator.messages, { required: "  -Required.",  number: " -Numeric.", digits: " -Digits." });
 	$.validator.addMethod("document_value", function( value, element, param ) {
 		var val_a = $("#value").val();
 		if( !val_a ){ 	val_a = 0; }
