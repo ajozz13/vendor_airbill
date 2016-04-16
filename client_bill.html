@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Client Airwaybill</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
+  <script type="text/javascript" src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.min.js"></script>
+  <script type="text/javascript" src="http://cdn.wijmo.com/external/globalize.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+  <!--<script src="http://www.ibcinc.com/hubfs/compose/apps/vendor/vendor-billapp.js"></script>-->
+  <script src="scripts/vendor-billapp.js"></script>
+  
+</head>
+<style>
+	.corners{ border-radius: 4px; }
+	.bottom_fix{ margin-bottom: 15px; }
+	span.help-block{ display: inline; }
+</style>
+
+<script>
+	$(function (){
+	});
+</script>
+<body>
+
+<div class="container">
+  <div class="jumbotron">
+    <h1>Airwaybill Application</h1>
+    <p>Please fill out the information below to create your airwaybill.</p> 
+  </div>
+<form role="form" id="bill_form">
+  <div class="row">
+    <div class="col-sm-4">
+      <h3>Shipper</h3>
+      
+ <div class="form-group">	      
+           <div class="col-sm-6">
+             <label for="account">Account:</label>
+             <input type='text' id='account' name='account' class="form-control" class="form-control" />
+           </div>       
+           <div class="col-sm-6">
+             <label for="reference">Reference:</label>
+             <input type='text' id='reference' name='reference' class="form-control" style="margin-bottom: 15px;" />
+           </div>	
+</div>
+
+
+<div class="form-group"><label>Name:</label><input type='text' id='shipper_name' name='shipper_name' class="form-control" /></div>
+<div class="form-group"><label>Company: </label><input type='text' id='shipper_company_name' name='shipper_company_name' class="form-control" /></div>
+<div class="form-group"><label>Phone:</label><input type='text' id='shipper_phone' name='shipper_phone' class="form-control" /></div>
+<div class="form-group"><label>Address:</label><input type='text' id='shipper_address' name='shipper_address' class="form-control" /></div>
+<div class="form-group"><label>City: </label><input type='text' id='shipper_city' name='shipper_city' class="form-control" /></div>
+
+ <div class="form-group">	      
+           <div class="col-sm-6">
+	<label>State:</label><input type='text' id='shipper_state' name='shipper_state' class="form-control" />
+           </div>       
+           <div class="col-sm-6">
+	<label>Zip:</label><input type='text' id='shipper_zip' name='shipper_zip' class="form-control bottom_fix" />
+           </div>	
+</div>
+<div class="form-group"><label>Country:</label><input type='text' id='shipper_country' name='shipper_country' class="form-control" /></div>
+      
+      
+    </div>
+    <div class="col-sm-4">
+      <h3>Consignee</h3>
+      
+<div class="form-group"><label>Name:</label><input type='text' id='consignee_name' name='consignee_name' class="form-control" /></div>
+<div class="form-group"><label>Company: </label><input type='text' id='consignee_company_name' name='consignee_company_name' class="form-control" /></div>
+<div class="form-group"><label>Phone:</label><input type='text' id='consignee_phone' name='consignee_phone' class="form-control" /></div>
+<div class="form-group"><label>Address:</label><input type='text' id='consignee_address' name='consignee_address' class="form-control" /></div>
+<div class="form-group"><label>City: </label><input type='text' id='consignee_city' name='consignee_city' class="form-control" /></div>
+<div class="form-group"><label>State:</label><input type='text' id='consignee_state' name='consignee_state' class="form-control" /></div>
+<div class="form-group"><label>Zip:</label><input type='text' id='consignee_zip' name='consignee_zip' class="form-control" /></div>
+<div class="form-group"><label>Country:</label><input type='text' id='consignee_country' name='consignee_country' class="form-control" /></div>
+
+    </div>
+    <div class="col-sm-4">
+      <h3>Shipment Information</h3>        
+      
+<div data-role="form-group"><label>Description: </label><input type='text' id='description' name='description' class="form-control bottom_fix" /></div>
+
+<div class="form-group">	      
+           <div class="col-sm-6">
+	<label>Weight: </label>
+	<input type='number' min="1" id='weight' name='weight' class="form-control"/>
+           </div>       
+           <div class="col-sm-6">
+	<label>Weight Unit: </label>
+	<select id="weight_qualifier" name="weight_qualifier" class="form-control" style="margin-bottom: 15px;"><option value="lbs" selected>Pounds - LBS</option><option value="kgs">Kilograms - KGS</option></select>
+           </div>	
+</div>    
+
+<div class="form-group">	      
+           <div class="col-sm-6">
+	<label>Pieces: </label>
+	<input type='number' min="1" id='pieces' name='pieces' class="form-control"  />
+           </div>       
+           <div class="col-sm-6">
+	<label>Value $</label>
+	<input type='number' min="0" id='value' name='value' class="form-control bottom_fix" />
+           </div>	
+</div>    
+
+     
+   <div class="form-group">	      
+           <div class="col-sm-6">
+	<label>Type</label>
+	<select id="contents" name="contents"  class="form-control">
+	  <option value="DOC">Documents</option><option value="APX">Dutiable</option>
+	</select>
+           </div>       
+           <div class="col-sm-6">
+	<label>Packaging: </label>
+	<select id="packaging" name="packaging" class="form-control bottom_fix">
+	<option value="P">Package</option><option value="L">Letter</option><option value="B">Box</option><option value="O">Other</option>
+	</select>
+           </div>	
+</div>
+    <div class="form-group">	      
+           <div class="col-sm-6">
+	<label>Service: </label>
+	<select id="service" name="service" class="form-control">
+	<option value="ST">Standard Courier</option><option value="P1">Priority One</option><option value="DS">Deferred Courier</option><option value="GD">Ground Service</option><option value="MH">Mail Plus</option><option value="XF">Express Freight</option>
+	</select>
+           </div>       
+           <div class="col-sm-6">
+	<label>Payment:</label>
+	<select id="bill_to" name="bill_to" class="form-control bottom_fix">
+	<option value="P">Pre-paid</option><option value="C">Collect</option><option value="F">Free Domicile</option>
+	</select>
+           </div>	
+</div>     
+<div class="form-group">	      
+           <div class="col-sm-6">
+	<label>Platinum:</label>
+	<select id="platinum_service" name="platinum_service" class="form-control">
+		<option value="">--None--</option><option value="Saturday Delivery">Saturday Delivery</option><option value="Same Day">Same Day</option>
+	</select>
+           </div>       
+           <div class="col-sm-6">
+	<label>Insurance $</label>
+	<input type='number' id='insurance_amount' name='insurance_amount' class="form-control bottom_fix" min="1" max="2500" />
+           </div>	
+</div>
+
+<div class="form-group">
+	<br />
+	<div class="col-sm-6 center-block">
+		<button id='fsubmit' type="button"  class="btn btn-primary">Create</button> | <button id='fclear' type="button"  class="btn btn-danger">Clear</button>
+		<div><span id="test_response"></span></div>
+	</div>	
+</div>
+    
+</div>
+</div>
+
+</form>
+	
+<div id="result"></div>
+
+<!-- Supporting code -->
+<!-- MODAL WINDOW  -->
+<div class="modal fade" id="modalMsg" tabindex="-1" role="dialog" aria-labelledby="modalMsgLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="modalMsgLabel"></h4>
+      </div>
+      <div class="modal-body">      
+	      <div id="modalMsgContentDiv" class="alert" role="alert"> 
+		      <h4  id="modalMsgInnerLabel"></h4> 
+		      <p id="modalMsgContent"></p>
+	      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn" data-dismiss="modal" id="modalMsgCloseBtn">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL WINDOW  -->
+
+
+</body>
+</html>
