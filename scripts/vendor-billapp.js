@@ -97,7 +97,7 @@ $(function (){
 		//alert($( "input[name=contents]:checked" ).val());	
 		var btn = $(this);
 		if( $( "#bill_form" ).valid() ){
-			$.post( "production",  { 'billdata':buildJson() }, function( data ) {
+			$.post( "https://api.pactrak.com/ibcairbill/production",  { 'billdata':buildJson() }, function( data ) {
 				rtype === "text" ? handleTextResponse( data, "test_response" ) :
 					alertJSON( JSON.stringify( data ), "test_response" );
 			},rtype )
