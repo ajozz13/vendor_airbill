@@ -63,7 +63,10 @@ function toJson( form ){
 	});
 	return JSON.stringify( json_obj );
 }
-function showModalMessage( alert, main_title, msg, text_mode=true ){
+function showModalMessage( alert, main_title, msg,  text_mode ){ // text_mode=true ){
+	if( text_mode == null ){
+		text_mode = true;
+	}
 	if( alert ){
 		$("#modalMsgContentDiv").removeClass( "alert-success" ).addClass( "alert-danger" );
 		$("#modalMsgCloseBtn").removeClass( "btn-success" ).addClass( "btn-danger" );
