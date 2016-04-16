@@ -28,7 +28,9 @@ function buildJson(){
 	shipment[ "packaging" ] = $( "#packaging" ).val();
 	shipment[ "weight" ] = $( "#weight" ).val();
 	shipment[ "weight_qualifier" ] = $( "#weight_qualifier" ).val();
-	shipment[ "value" ] = $( "#value" ).val();
+	var val = $( "#value" ).val();
+	if( !val ){ val = 0; }
+	shipment[ "value" ] = val;
 	shipment[ "service" ] = $( "#service" ).val();
 	shipment[ "bill_to" ] = $( "#bill_to" ).val();
 	shipment[ "platinum_service" ] = $( "#platinum_service" ).val();
