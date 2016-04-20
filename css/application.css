@@ -1,0 +1,15 @@
+/* 
+    Created on : Apr 19, 2016, 4:35:41 PM
+    Author     : aochoa
+*/
+.corners{ border-radius: 4px; }
+.bottom_fix{ margin-bottom: 15px; }
+span.help-block{ display: inline; }
+.center{ display: table; margin: 0 auto;}
+.border {margin-top:7px; border: #cdcdcd medium solid; border-radius: 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; }
+.content label { font-weight: bold; margin-right: 5px;}
+.lgcontent { font-size: 1.5em !important;}
+.content h3 { margin: auto;  width: 70%; }
+#shipmentInfo label{ width: 80px; }
+#shipmentInfo div{ margin: auto;  width: 70%; }
+
