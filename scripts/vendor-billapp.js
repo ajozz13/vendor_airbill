@@ -136,11 +136,8 @@ $(function (){
 	$.validator.addMethod("dimension_match", function( value, element, param ) {
 		var flg = true;
 		var val_d = $("#dimensions").val();
-		console.log( val_d  );
 		if( val_d ){
-			var m = val_d.match( /(\d+\s?x\s?\d+\s?x\s?\d+)/i );
-			console.log( m );
-			return m;
+			return val_d.match( /(\d+\s?x\s?\d+\s?x\s?\d+)/i );
 		}
 		return flg;
 	}," L x  W x H" );
