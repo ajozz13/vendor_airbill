@@ -5,6 +5,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/application.css"/>
+  <link rel="stylesheet" href="css/bootstrap-print.min.css" media="print"/>
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
   <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>
   <script type="text/javascript" src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/additional-methods.min.js"></script>
@@ -12,14 +14,8 @@
   <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <!--<script src="http://www.ibcinc.com/hubfs/compose/apps/vendor/vendor-billapp.js"></script>-->
   <script src="scripts/vendor-billapp.js"></script>
-  
-</head>
-<style>
-	.corners{ border-radius: 4px; }
-	.bottom_fix{ margin-bottom: 15px; }
-	span.help-block{ display: inline; }
-</style>
 
+</head>
 <script>
 	$(function (){
 	});
@@ -148,6 +144,17 @@
            </div>	
 </div>
 
+<div class="form-group">	      
+           <div class="col-sm-6">
+	<label>Dimensions:</label>
+	<input type='text'  id='dimensions' name='dimensions' placeholder="L x W x H" class="form-control"/>
+           </div>       
+           <div class="col-sm-6">
+	<label>Measure Unit: </label>
+	<select id="dimensions_qualifier" name="dimensions_qualifier" class="form-control" style="margin-bottom: 15px;"><option value="inch" selected>Inches</option><option value="cm">Centimeters</option></select>
+           </div>	
+</div>   
+
 <div class="form-group">
 	<br />
 	<div class="col-sm-6 center-block">
@@ -167,25 +174,48 @@
 <!-- MODAL WINDOW  -->
 <div class="modal fade" id="modalMsg" tabindex="-1" role="dialog" aria-labelledby="modalMsgLabel">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
+    <div class="modal-content"> <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="modalMsgLabel"></h4>
+        <h4 class="modal-title" id="modalMsgLabel"></h4></div>
+      <div class="modal-body"><div id="modalMsgContentDiv" class="alert" role="alert"><h4  id="modalMsgInnerLabel"></h4><p id="modalMsgContent"></p></div>
       </div>
-      <div class="modal-body">      
-	      <div id="modalMsgContentDiv" class="alert" role="alert"> 
-		      <h4  id="modalMsgInnerLabel"></h4> 
-		      <p id="modalMsgContent"></p>
-	      </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn" data-dismiss="modal" id="modalMsgCloseBtn">Close</button>
-      </div>
+      <div class="modal-footer"><button type="button" class="btn" data-dismiss="modal" id="modalMsgCloseBtn">Close</button></div>
     </div>
   </div>
 </div>
 <!-- MODAL WINDOW  -->
+<!-- Vendor Bill HTML-->
 
+<!-- Vendor Bill HTML -->
+<!-- PRINTABLE MODAL -->
+
+<div id="modalPrint" class="modal fade">
+ <div class="modal-dialog modal-lg"><div class="modal-content"><div class="modal-header">
+     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title">Printable Airwaybill</h4>
+ </div>
+<div class="modal-body" id="billdata">
+
+<div class="row"><div class="col-sm-4"><img src="http://www.ibcinc.com/hs-fs/hubfs/Creatrix_Assets/Images/IBC_Logo.svg"></div>
+<div class="col-sm-4"><br /><br /><div class="text-center"><h1>Airwaybill </h1><h4>1 800-ship-ibc  http://www.ibcinc.com</h4></div></div>
+<div class="col-sm-4"><br /><br /><br /><div class="text-center"><img id='trak_image' location="https://api.pactrak.com/barcode/servlet/BCGenerator?width=1&billNum="></div><div class="center" id="trk"></div></div>
+</div>
+<div class="row">
+<div class="col-sm-6 text-center">
+<div class="border content"><h3>From:</h3>
+<div id="s1"></div><div id="s2"></div><div id="s3"></div><div id="s4"></div></div>
+<div class="border lgcontent content"><h3>To: </h3>
+<div id="c1"></div><div id="c2"></div><div id="c3"></div><div id="c4"></div><div id="c5"></div></div>
+</div>
+<div class="col-sm-6 content"><h3>Shipment Info</h3><div id="shipmentInfo"></div></div></div>
+</div><hr class="border"/>
+	
+<div class="modal-footer">
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+    <button type="button" class="btn btn-primary" id="PrintBill">Print</button>
+</div>
+  </div>
+
+ </div></div></div>
 
 </body>
 </html>
