@@ -2,12 +2,15 @@
 A simple client solution for IBC Vendors using the IBC Airbill API.
 
 # requirements
-  - Bootstrap  
-  - JQuery  
-  - JQuery Validation  
-  - JQuery Globalize  
+  - Bootstrap  ( http://getbootstrap.com/ )
+  - JQuery        ( https://jquery.com/  )
+  - JQuery Validation  ( https://jqueryvalidation.org/ )
+  - JQuery Globalize  ( https://github.com/jquery/globalize/tree/1.0.0 )
 
-For support issues please call:  
+# Working Sample
+A live sample of the application is available here: http://www.ibcinc.com/vendor_bill
+
+For support issues please contact:  
 Alberto Ochoa  
 alberto.ochoa@ibcinc.com
 
