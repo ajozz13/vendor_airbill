@@ -125,7 +125,7 @@ $(function (){
 		
 	});
 
-     //Validation...
+	//Validation...
 	jQuery.extend(jQuery.validator.messages, { required: "  -Required.",  number: " -Numeric.", digits: " -Digits." });
 	$.validator.addMethod("document_value", function( value, element, param ) {
 		var val_a = $("#value").val();
@@ -163,6 +163,41 @@ $(function (){
 			error.appendTo( element.prev('label') );
 		}
 	});
+	//Country code selects..
+	$.getJSON( "db/country-code.json", function( data ) {	
+		$(".country_selector").each(function(){
+			var selector = $(this);
+			selector.append(
+				$('<option></option>').val( "" ).html( "-- Select Country --")
+			);
+			$.each( data, function( key ) {
+				var country = data[ key ];
+				selector.append(
+					$('<option></option>').val( country.Code ).html( country.Name )
+				);
+			});
+		});
+	});
+	$( ".country_selector" ).change(function() {
+		$(this).prev("input").val( $(this).val()  );
+	});
+	$( ".country_search" ).keyup(function( event ) {
+		var val = $( this ).val().toUpperCase();
+		if( val.length === 2 ){
+			$( this ).val( val );
+			$(this).next( 'select' ).val( val );
+		}else{
+			$(this).next( 'select' ).val( '' );
+		}
+	}).keydown(function( event ) {
+		var val = $( this ).val().toUpperCase();
+		if( val.length === 2 ){
+			$( this ).val( val );
+			$(this).next( 'select' ).val( val );
+		}else{
+			$(this).next( 'select' ).val( '' );
+		}
+	});
 
 });
 
@@ -178,7 +213,8 @@ function presentBill( entry, trackNumber ){
 	$( "#c1" ).text( joinMe( " ",entry.consignee.name, entry.consignee.company_name ) );
 	$( "#c2" ).text( entry.consignee.address );
 	$( "#c3" ).text( joinMe( " ", entry.consignee.city, entry.consignee.state, entry.consignee.zip, entry.consignee.country  ) );
-	$( "#c4" ).text( entry.consignee.phone );
+	var country_name = $( "#consignee_country" ).next( 'select').find('option:selected').text();
+	$( "#c4" ).text( joinMe( " - ", entry.consignee.phone, country_name ) );
 	//$( "#c5" ).text(  );
 	var d = new Date();
 	createLabelElement( "Date: ", joinMe( " ",  d.toDateString(), d.getHours()+":"+d.getMinutes() ), '#shipmentInfo'  );
