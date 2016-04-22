@@ -215,7 +215,8 @@ function presentBill( entry, trackNumber ){
 	$( "#c1" ).text( joinMe( " ",entry.consignee.name, entry.consignee.company_name ) );
 	$( "#c2" ).text( entry.consignee.address );
 	$( "#c3" ).text( joinMe( " ", entry.consignee.city, entry.consignee.state, entry.consignee.zip, entry.consignee.country  ) );
-	var country_name = $( "#consignee_country" ).next( 'select').find('option:selected').text();
+	//var country_name = $( "#consignee_country" ).next( 'select').find('option:selected').text();
+	var country_name = $( "#consignee_country" ).next( 'select').find("option[value='"+$( "#consignee_country" ).val()+"']").text();
 	$( "#c4" ).text( joinMe( " - ", entry.consignee.phone, country_name ) );
 	//$( "#c5" ).text(  );
 	var d = new Date();
