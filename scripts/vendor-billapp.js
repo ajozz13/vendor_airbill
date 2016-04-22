@@ -122,6 +122,7 @@ $(function (){
 		$('select').each(function (i, v) {
 			$(this).prop("selectedIndex", 0);
 		});
+		$('.country_selector').val('').trigger('chosen:updated');
 		
 	});
 
@@ -176,6 +177,7 @@ $(function (){
 					$('<option></option>').val( country.Code ).html( country.Name )
 				);
 			});
+			selector.chosen();
 		});
 	});
 	$( ".country_selector" ).change(function() {
@@ -185,17 +187,17 @@ $(function (){
 		var val = $( this ).val().toUpperCase();
 		if( val.length === 2 ){
 			$( this ).val( val );
-			$(this).next( 'select' ).val( val );
+			$(this).next( 'select' ).val( val ).trigger('chosen:updated');
 		}else{
-			$(this).next( 'select' ).val( '' );
+			$(this).next( 'select' ).val( '' ).trigger('chosen:updated');
 		}
 	}).keydown(function( event ) {
 		var val = $( this ).val().toUpperCase();
 		if( val.length === 2 ){
 			$( this ).val( val );
-			$(this).next( 'select' ).val( val );
+			$(this).next( 'select' ).val( val ).trigger('chosen:updated');
 		}else{
-			$(this).next( 'select' ).val( '' );
+			$(this).next( 'select' ).val( '' ).trigger('chosen:updated');
 		}
 	});
 

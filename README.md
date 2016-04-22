@@ -3,6 +3,7 @@ A simple client solution for IBC Vendors using the IBC Airbill API.
 
 # requirements
   - Bootstrap  ( http://getbootstrap.com/ )
+  - Bootstrap Chosen ( https://harvesthq.github.io/chosen/ )
   - JQuery        ( https://jquery.com/  )
   - JQuery Validation  ( https://jqueryvalidation.org/ )
   - JQuery Globalize  ( https://github.com/jquery/globalize/tree/1.0.0 )
