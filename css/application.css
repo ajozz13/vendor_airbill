@@ -10,6 +10,9 @@ span.help-block{ display: inline; }
 .content label { font-weight: bold; margin-right: 5px;}
 .lgcontent { font-size: 1.5em !important;}
 .content h3 { margin: auto;  width: 70%; }
+.no_padd{ padding: 0px; }
+.thirty_percent{ width: 30%}
+.seventy_percent{ width: 70% } 
 #shipmentInfo label{ width: 80px; }
 #shipmentInfo div{ margin: auto;  width: 70%; }
 
